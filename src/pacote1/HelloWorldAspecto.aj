@@ -1,4 +1,4 @@
-package aspectos;
+package pacote1;
 
 public aspect
 HelloWorldAspecto
@@ -8,16 +8,22 @@ HelloWorldAspecto
     pointcut exemplo2( ) : call( public * pacote1.HelloWorld.*(..) ) ;
 
     pointcut exemplo3( ) : call( public * pacote1.HelloWorld.sayHello(..) ) ;
+    
+    pointcut exemplo4( ) : call( public * br.com.fiap.gui.tela1.addActionListener(..) ) ;
 
     before( ) : exemplo1( ) {
 	System.out.println( "antes de inicializar uma classe" );
     }
 
     before( ) : exemplo2( ) {
-	System.out.println( "antes qualquer método da classes HelloWorld" );
+	System.out.println( "antes qualquer mï¿½todo da classes HelloWorld" );
     }
 
     after( ) : exemplo3( ) {
-	System.out.println( "após o método sayHello de HelloWorld" );
+	System.out.println( "apï¿½s o mï¿½todo sayHello de HelloWorld" );
+    }
+    
+    after( ) : exemplo4( ) {
+	System.out.println( "................." );
     }
 }
