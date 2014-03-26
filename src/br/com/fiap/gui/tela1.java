@@ -5,7 +5,7 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,6 @@ import javax.swing.table.DefaultTableModel;
 import br.com.fiap.dao.ProdutoDAOJDBC;
 import br.com.fiap.model.Compra;
 import br.com.fiap.model.Item;
-import br.com.fiap.model.Produto;
 import br.com.fiap.util.ClienteSimuladorBancoDados;
 import br.com.fiap.vo.ProdutoVO;
 
@@ -39,13 +38,14 @@ public class tela1 extends JFrame
     private JTextField txtNroPedido;
     private JTextField txtQuantidade;
     private JTable tbProdutos;
-    private Compra compra = new Compra();
-    List<ProdutoVO> produtos = new ArrayList();
+    Compra compra = new Compra();
+	List<ProdutoVO> produtos = new ArrayList();
     JComboBox<ProdutoVO> cbProduto = new JComboBox<ProdutoVO>();
     private JTextField txtTotal;
     String tipoDeCliente;
     double total = 0;
-
+	
+    
     public static void main( String[] args )
     {
 	EventQueue.invokeLater( new Runnable()
@@ -66,9 +66,6 @@ public class tela1 extends JFrame
 	} );
     }
 
-    /**
-     * Create the frame.
-     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public tela1()
     {
@@ -152,7 +149,7 @@ public class tela1 extends JFrame
 	    @Override
 	    public void actionPerformed( ActionEvent arg0 )
 	    {
-		System.out.println( "clicou" );
+	    	metodo( getCompra() );
 	    }
 	} );
 
@@ -173,7 +170,10 @@ public class tela1 extends JFrame
 		
 		total += preco;
 		txtTotal.setText( "R$ " + Double.toString( total ) );
-//		if ( hasProductInItem( compra.getItens(), produtoSelecionado ) )
+		
+		compra.setValor(new BigDecimal(total));
+		System.out.println(compra);
+		//		if ( hasProductInItem( compra.getItens(), produtoSelecionado ) )
 //		{
 //
 //		} else
@@ -185,18 +185,18 @@ public class tela1 extends JFrame
 
 	    }
 
-	    private boolean hasProductInItem( List<Item> itens, Produto p )
-	    {
-		for ( Item i : itens )
-		{
-		    if ( i.getProduto().getCodigo().equals( p.getCodigo() ) )
-		    {
-			i.getQuantidade().add( new BigInteger( "1" ) );
-			return true;
-		    }
-		}
-		return false;
-	    }
+//	    private boolean hasProductInItem( List<Item> itens, Produto p )
+//	    {
+//		for ( Item i : itens )
+//		{
+//		    if ( i.getProduto().getCodigo().equals( p.getCodigo() ) )
+//		    {
+//			i.getQuantidade().add( new BigInteger( "1" ) );
+//			return true;
+//		    }
+//		}
+//		return false;
+//	    }
 
 	} );
 	btnAdicionarProduto.setBounds( 10, 175, 178, 23 );
@@ -237,6 +237,9 @@ public class tela1 extends JFrame
 	lblTotal.setHorizontalAlignment( SwingConstants.RIGHT );
 	lblTotal.setBounds( 372, 201, 99, 14 );
 	contentPane.add( lblTotal );
+	
+   
+	
 
 	// for ( Integer i = 0; i < 10; i++ )
 	// {
@@ -258,10 +261,22 @@ public class tela1 extends JFrame
 
     }
 
-    private void trazerClientes( JComboBox cbCliente )
+    void metodo(Compra compra2) {
+    	System.out.println(">> " + compra2.getValor());
+	}
+
+	private void trazerClientes( JComboBox cbCliente )
     {
 	String[] consultarClientesPorTiposDeClientes = ClienteSimuladorBancoDados
 		.consultarClientesPorTiposDeClientes( tipoDeCliente );
 	cbCliente.setModel( new DefaultComboBoxModel( consultarClientesPorTiposDeClientes ) );
     }
+	
+    public Compra getCompra() {
+		return compra;
+	}
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
+	}
 }

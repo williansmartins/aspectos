@@ -1,29 +1,27 @@
 package pacote1;
 
+import br.com.fiap.model.Compra;
+
 public aspect
-HelloWorldAspecto
-{
-    pointcut exemplo1( ) : initialization( public pacote1.HelloWorld.new(..));
-    
-    pointcut exemplo2( ) : call( public * pacote1.HelloWorld.*(..) ) ;
+HelloWorldAspecto {
 
-    pointcut exemplo3( ) : call( public * pacote1.HelloWorld.sayHello(..) ) ;
-    
-    pointcut exemplo4( ) : call( public * br.com.fiap.gui.tela1.addActionListener(..) ) ;
+	before(Compra compra) : call(* br.com.fiap.gui.tela1.metodo(Compra)) && args(compra){
+		System.out.println(compra.getValor());
+		
+	}
+	
+	
+//	@Pointcut("execution(* *.actionPerformed(*)) && args(actionEvent) && if()")
+//	public static boolean button1Pointcut(ActionEvent actionEvent) {
+//		JButton button = (JButton) actionEvent.getSource();
+//		System.out.println("opa:" + button);
+//		return (actionEvent.getSource() == btnFinalizarCompra);
+//	}
+//
+//	@Before("button1Pointcut(actionEvent)")
+//	public void beforeButton1Pointcut(ActionEvent actionEvent) {
+//		System.out.println("...");
+//	}
 
-    before( ) : exemplo1( ) {
-	System.out.println( "antes de inicializar uma classe" );
-    }
 
-    before( ) : exemplo2( ) {
-	System.out.println( "antes qualquer m�todo da classes HelloWorld" );
-    }
-
-    after( ) : exemplo3( ) {
-	System.out.println( "ap�s o m�todo sayHello de HelloWorld" );
-    }
-    
-    after( ) : exemplo4( ) {
-	System.out.println( "................." );
-    }
 }
