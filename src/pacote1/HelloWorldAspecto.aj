@@ -5,10 +5,10 @@ import br.com.fiap.model.Compra;
 public aspect
 HelloWorldAspecto {
 
-	before(Compra compra) : call(* br.com.fiap.gui.tela1.metodo(Compra)) && args(compra){
-		System.out.println(compra.getValor());
-		
-	}
+//	before(Compra compra) : call(* br.com.fiap.gui.tela1.metodo(Compra)) && args(compra){
+//		System.out.println(compra.getValor());
+//		
+//	}
 	
 	
 //	@Pointcut("execution(* *.actionPerformed(*)) && args(actionEvent) && if()")

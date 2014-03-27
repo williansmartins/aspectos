@@ -29,7 +29,19 @@ public class CRUDProdutos {
 		lista.add(produto);
 
 		dao.salvar(produto);
-
+	}
+	
+	@Test
+	public void inserirProdutoDe490Reais() {
+	    ProdutoVO produto = new ProdutoVO();
+	    produto.setNome("Capacete 2");
+	    produto.setDescricao("LS2 - Cambotiável");
+	    produto.setPreco(490.00);
+	    produto.setQuantidade(1);
+	    produto.setIdCliente(Long.valueOf(1));
+	    produto.setData(Calendar.getInstance());
+	    
+	    dao.salvar(produto);
 	}
 
 	@Test

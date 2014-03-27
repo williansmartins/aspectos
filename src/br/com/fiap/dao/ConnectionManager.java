@@ -25,7 +25,7 @@ public class ConnectionManager
 	    Class.forName( STR_DRIVER );
 	    conn = DriverManager.getConnection( STR_CON, USER, PASSWORD );
 	    conn.setAutoCommit( false );
-	    System.out.println( "Abrindo conexão com banco de dados." );
+//	    System.out.println( "Abrindo conexão com banco de dados." );
 	    return conn;
 	} catch ( ClassNotFoundException e )
 	{
@@ -45,7 +45,7 @@ public class ConnectionManager
 	    if ( conn != null )
 	    {
 		conn.close();
-		System.out.println( "Fechando a conexão com banco de dados." );
+//		System.out.println( "Fechando a conexão com banco de dados." );
 	    }
 	} catch ( Exception e )
 	{

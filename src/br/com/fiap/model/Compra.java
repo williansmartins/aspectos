@@ -81,11 +81,11 @@ public class Compra extends EntityDefault
 
     public BigDecimal getValor( )
     {
-	BigDecimal valor = new BigDecimal( 0 );
-	for ( Item item : this.getItens() )
-	{
-	    valor = valor.add( item.getProduto().getPreco() );
-	}
+//	BigDecimal valor = new BigDecimal( 0 );
+//	for ( Item item : this.getItens() )
+//	{
+//	    valor = valor.add( item.getProduto().getPreco() );
+//	}
 	return valor;
     }
 

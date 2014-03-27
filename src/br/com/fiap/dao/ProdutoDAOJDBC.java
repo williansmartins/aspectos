@@ -29,6 +29,10 @@ public class ProdutoDAOJDBC implements IProdutoDAO
     PreparedStatement stmt = null;
     ResultSet rs = null;
     ProdutoVO m = null;
+    
+    public ProdutoDAOJDBC(){
+	
+    }
 
     @Override
     public void salvar( ProdutoVO produto ) throws PersistenceException

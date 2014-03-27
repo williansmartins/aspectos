@@ -3,6 +3,8 @@ package br.com.fiap.model;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import br.com.fiap.vo.ProdutoVO;
+
 public class Item extends EntityDefault
 {
     private static final long serialVersionUID = 1L;
@@ -11,7 +13,7 @@ public class Item extends EntityDefault
     private String situacao;
     private Reserva reserva;
     private Compra compra;
-    private Produto produto;
+    private ProdutoVO produto;
 
     public BigInteger getQuantidade( )
     {
@@ -63,12 +65,12 @@ public class Item extends EntityDefault
 	this.compra = compra;
     }
 
-    public Produto getProduto( )
+    public ProdutoVO getProduto( )
     {
 	return produto;
     }
 
-    public void setProduto( Produto produto )
+    public void setProduto( ProdutoVO produto )
     {
 	this.produto = produto;
     }
