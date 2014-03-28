@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2014-03-27 01:21:12
+Date: 2014-03-28 02:42:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,10 +31,10 @@ CREATE TABLE `compras` (
 -- ----------------------------
 -- Records of compras
 -- ----------------------------
-INSERT INTO `compras` VALUES ('1', '2014-03-26', '1', '1', '1');
+INSERT INTO `compras` VALUES ('1', '2011-03-26', '1', '1', '1');
 INSERT INTO `compras` VALUES ('2', '2013-02-20', '2', '2', '2');
 INSERT INTO `compras` VALUES ('3', '2014-03-26', '3', '3', '3');
 INSERT INTO `compras` VALUES ('4', '2013-02-20', '4', '4', '4');
-INSERT INTO `compras` VALUES ('5', '2014-03-26', '5', '5', '5');
-INSERT INTO `compras` VALUES ('6', '2013-02-20', '6', '6', '6');
-INSERT INTO `compras` VALUES ('7', '2013-02-20', '7', '7', '7');
+INSERT INTO `compras` VALUES ('5', '2004-04-26', '5', '5', '7');
+INSERT INTO `compras` VALUES ('6', '2000-02-01', '6', '6', '6');
+INSERT INTO `compras` VALUES ('7', '2000-02-20', '7', '7', '7');

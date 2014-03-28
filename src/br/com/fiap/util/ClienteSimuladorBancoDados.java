@@ -56,4 +56,10 @@ public abstract class ClienteSimuladorBancoDados
 	clientes.put( PJ, new String[] { cliente.get( 4l ), cliente.get( 5l ) } );
 	return clientes.get( tipoCliente );
     }
+    
+    public static void removerCliente( Long codigo ){
+	cliente.remove( codigo );
+	System.out.println("Removendo cliente: " + codigo);
+	System.out.println("Clientes atuais: " + cliente);
+    }
 }
